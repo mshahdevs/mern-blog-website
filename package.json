@@ -1,0 +1,16 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "Mern app to learn full stack development",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "mshahdevs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  }
+}
