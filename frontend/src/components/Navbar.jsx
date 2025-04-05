@@ -9,7 +9,7 @@ export const Navbar = () => {
         <Link to='/about' className='text-xl font-bold'>
           About
         </Link>
-        <Link to='/article' className='text-xl font-bold'>
+        <Link to='/articles-list' className='text-xl font-bold'>
           Articles
         </Link>
       </div>
