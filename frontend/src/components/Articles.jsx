@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 export const Articles = ({ articles }) => {
   return (
     <div className='w-full flex gap-2 px-2 '>
+      
       {articles?.map((article, index) => (
         <div
           key={index}

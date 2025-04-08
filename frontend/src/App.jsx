@@ -5,14 +5,21 @@ import { About } from './pages/About';
 import { ArticleList } from './pages/ArticleList';
 import { Navbar } from './components/Navbar';
 import { NotFound } from './pages/NotFound';
+import { ToastContainer } from 'react-toastify';
+
+import { Register } from './pages/Register';
+import Login from './pages/Login';
 function App() {
   return (
     <>
+      <ToastContainer />
       <Navbar />
 
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/about' element={<About />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+        <Route path='/login' element={<Login />} />
         <Route path='/articles-list' element={<ArticleList />}></Route>
         <Route path='/article/:name' element={<Article />}></Route>
         <Route path='*' element={<NotFound />} />

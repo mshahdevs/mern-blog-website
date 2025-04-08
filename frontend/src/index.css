@@ -1,1 +1,25 @@
 @import 'tailwindcss';
+
+#modal {
+  width: 100%;
+  background: #d3b17b;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-top 0.3s ease-in-out;
+}
+#modal h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@keyframes fade-slide-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

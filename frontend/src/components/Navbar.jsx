@@ -12,6 +12,12 @@ export const Navbar = () => {
         <Link to='/articles-list' className='text-xl font-bold'>
           Articles
         </Link>
+        <Link to='/register' className='text-xl font-bold'>
+          Register
+        </Link>
+        <Link to='/login' className='text-xl font-bold'>
+          Login
+        </Link>
       </div>
     </nav>
   );
