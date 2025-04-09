@@ -11,11 +11,16 @@ export const ArticleList = () => {
   return (
     <>
       <Dialog ref={modal} />
-      <div className='w-full flex flex-col items-center justify-center'>
-        <h1>Articles</h1>
-        <button onClick={handleCreatePost} className=''>
-          Create post
-        </button>
+      <div className='w-full'>
+        <h1 className='text-center m-4 text-2xl font-serif'>Articles</h1>
+        <div className='w-[85%] flex justify-end items-end mb-3'>
+          <button
+            onClick={handleCreatePost}
+            className='bg-amber-300 rounded-xl p-1 px-3 ml-4'
+          >
+            Create Post ✏
+          </button>
+        </div>
         <Articles articles={articles} />
       </div>
     </>

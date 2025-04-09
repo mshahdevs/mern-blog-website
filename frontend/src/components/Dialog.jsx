@@ -14,7 +14,9 @@ const Dialog = forwardRef((props, ref) => {
     <dialog ref={dialog}>
       <CreatePost />
       <form method='dialog'>
-        <button>Cancel</button>
+        <button className='bg-red-700 w-full my-2 text-white p-1 rounded-xl'>
+          Cancel
+        </button>
       </form>
     </dialog>,
     document.getElementById('modal')

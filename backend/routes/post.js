@@ -3,7 +3,7 @@ const { createPost, getPosts } = require('../controllers/post');
 const userAuth = require('../middleware/userAuth');
 const router = express.Router();
 
-router.post('/', userAuth, createPost);
+router.post('/create', userAuth, createPost);
 router.get('/', userAuth, getPosts);
 
 module.exports = router;

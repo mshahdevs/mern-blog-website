@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { login, reset } from '../store/slices/auth/userSlice';
+import { login } from '../store/slices/auth/userSlice';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 const Login = () => {
   const { user, isError, isLoading, isSuccess, message } = useSelector(
     (state) => state.user
   );
-  const dispatch = useDispatch();
 
-  const [users, setUser] = useState({
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userData, setUser] = useState({
     email: '',
     password: '',
   });
-  const { email, password } = users;
+
+  const { email, password } = userData;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,9 +38,11 @@ const Login = () => {
       toast.error(message);
       return;
     }
-
-    dispatch(reset());
-  }, [dispatch, isSuccess, isError, user]);
+    if (isSuccess || user) {
+      navigate('/');
+      toast.success(message);
+    }
+  }, [dispatch, isSuccess, navigate, user, isError]);
   if (isLoading) {
     return <h1 className='font-semibold text-sm bg-amber-800'>Loading....</h1>;
   }

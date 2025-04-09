@@ -26,6 +26,7 @@ const register = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -36,21 +37,20 @@ const register = async (req, res) => {
 //Login
 const login = async (req, res) => {
   const { email, password } = req.body;
-  if (!email || !password) {
-    throw new Error('Please all fields are required');
-  }
-
   const user = await userModel.findOne({ email });
+  const comparePassword = await bcrypt.compare(password, user.password);
 
-  if (user) {
-    res.status(201).json({
+  if (user && comparePassword) {
+    res.status(200).json({
       _id: user._id,
+      name: user.name,
       email: user.email,
       token: generateToken(user._id),
+      message: 'LoggedIn successfully',
     });
   } else {
     res.status(400);
-    throw new Error('Invalid user data');
+    throw new Error('Invalid credentials');
   }
 };
 
